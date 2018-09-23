@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/graphql?createDatabaseIfNotExist=true&useSSL=false
+    username: root
+    driver-class-name: org.gjt.mm.mysql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
