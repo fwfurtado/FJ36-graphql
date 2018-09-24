@@ -12,7 +12,7 @@ public class Curso {
     @Id
     @GeneratedValue
     private Long id;
-    private String nomne;
+    private String nome;
 
     @OneToMany(mappedBy = "curso")
     private List<Turma> turmas = new ArrayList<>();
@@ -23,9 +23,9 @@ public class Curso {
     @Deprecated
     Curso() {}
 
-    public Curso(Long id, String nomne, List<Turma> turmas) {
+    public Curso(Long id, String nome, List<Turma> turmas) {
         this.id = id;
-        this.nomne = nomne;
+        this.nome = nome;
         this.turmas = turmas;
     }
 
@@ -33,8 +33,8 @@ public class Curso {
         return id;
     }
 
-    public String getNomne() {
-        return nomne;
+    public String getNome() {
+        return nome;
     }
 
     public List<Turma> getTurmas() {
