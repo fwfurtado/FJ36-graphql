@@ -7,3 +7,10 @@ ifdef skip_tests
 else
 	@ ./mvnw clean package
 endif
+
+
+run/database:
+	@ docker-compose -f src/main/resources/docker-compose.yml up -d
+
+stop/database:
+	@ docker-compose -f src/main/resources/docker-compose.yml down -v

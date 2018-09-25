@@ -1,0 +1,24 @@
+type Aluno {
+    id: ID!
+    nome: String!
+}
+
+type Turma {
+    id: ID!
+    curso: Curso!
+    alunos: [Aluno]!
+}
+
+type Curso {
+    id: ID!
+    nome: String!
+    turmas: [Turma]!
+}
+
+
+type Query {
+    alunos: [Aluno]!
+    turmas: [Turma]!
+    cursos: [Curso]!
+}
+
