@@ -19,8 +19,7 @@ public class Aluno {
     Aluno() {
     }
 
-    public Aluno(Long id, String nome) {
-        this.id = id;
+    public Aluno(String nome) {
         this.nome = nome;
     }
 

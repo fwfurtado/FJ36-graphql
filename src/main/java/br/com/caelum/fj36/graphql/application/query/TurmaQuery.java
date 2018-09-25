@@ -1,17 +1,19 @@
 package br.com.caelum.fj36.graphql.application.query;
 
 import br.com.caelum.fj36.graphql.models.Turma;
+import br.com.caelum.fj36.graphql.repositories.TurmaRepository;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class TurmaQuery implements GraphQLQueryResolver {
 
-    public List<Turma> getTurmas() {
-        return new ArrayList<>();
+    @Autowired
+    private TurmaRepository repository;
+
+    public Iterable<Turma> getTurmas() {
+        return repository.findAll();
     }
 }
 

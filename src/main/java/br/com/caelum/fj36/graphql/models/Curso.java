@@ -1,9 +1,6 @@
 package br.com.caelum.fj36.graphql.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +11,7 @@ public class Curso {
     private Long id;
     private String nome;
 
-    @OneToMany(mappedBy = "curso")
+    @OneToMany(mappedBy = "curso", fetch = FetchType.EAGER)
     private List<Turma> turmas = new ArrayList<>();
 
     /**
@@ -23,10 +20,8 @@ public class Curso {
     @Deprecated
     Curso() {}
 
-    public Curso(Long id, String nome, List<Turma> turmas) {
-        this.id = id;
+    public Curso(String nome) {
         this.nome = nome;
-        this.turmas = turmas;
     }
 
     public Long getId() {

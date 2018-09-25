@@ -16,9 +16,36 @@ type Curso {
 }
 
 
+enum ErrorCategory {
+    VALIDATION
+    ERROR
+
+}
+
+type Message {
+    message: String!
+    category: ErrorCategory!
+    args: String!
+}
+
 type Query {
     alunos: [Aluno]!
     turmas: [Turma]!
     cursos: [Curso]!
 }
 
+type CriarAluno {
+    aluno: Aluno
+    errors: [Message]
+}
+
+input TurmaInput {
+    cursoId: Int!
+    alunosIds: [Int!]!
+}
+
+type Mutation {
+    criarAluno(nome:String!): Aluno
+    criarCurso(nome:String!): Curso
+    criarTurma(turmaInput: TurmaInput!): Turma
+}

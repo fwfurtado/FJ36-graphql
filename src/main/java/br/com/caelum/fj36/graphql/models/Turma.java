@@ -15,17 +15,17 @@ public class Turma {
     @ManyToOne
     private Curso curso;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Aluno> alunos = new ArrayList<>();
 
     /**
      * @deprecated used only by frameworks
      */
     @Deprecated
-    Turma(){ }
+    Turma() {
+    }
 
-    public Turma(Long id, LocalDate startDate, LocalDate endDate, Curso curso, List<Aluno> alunos) {
-        this.id = id;
+    public Turma(LocalDate startDate, LocalDate endDate, Curso curso, List<Aluno> alunos) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.curso = curso;
